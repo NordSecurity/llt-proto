@@ -1,22 +1,13 @@
 use anyhow::Result;
-use std::{
-    env,
-    fs::create_dir,
-    io::{Error, ErrorKind},
-    path::Path,
-};
+
+const PROTO_PATH: &str = "../../ens/ens.proto";
 
 fn main() -> Result<()> {
-    let out_dir = format!(
-        "{}/protos",
-        env::var("OUT_DIR").map_err(|err| Error::other(err.to_string()))?
-    );
-    create_dir(Path::new(&out_dir)).or_else(|err| match err.kind() {
-        ErrorKind::AlreadyExists => Ok(()),
-        _ => Err(err),
-    })?;
+    tonic_prost_build::configure().compile_protos(&[PROTO_PATH], &["../../ens"])?;
 
-    tonic_prost_build::configure().compile_protos(&["../../ens/ens.proto"], &["../../ens"])?;
+    // This makes it possible to find the 'ens.proto' in the target directory
+    let out = std::env::var("OUT_DIR")?;
+    std::fs::copy(PROTO_PATH, format!("{out}/ens.proto"))?;
 
     Ok(())
 }
