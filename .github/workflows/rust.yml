@@ -17,5 +17,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build
-      working-directory: rust/llt-proto
       run: cargo build --verbose
