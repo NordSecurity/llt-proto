@@ -8,6 +8,7 @@ enum Error {
     ServerMaintenance = 2;        // Only this error type can cause automatic recconection to a different server
     Unauthenticated = 3;
     Superseded = 4;
+    UnsupportedCipher = 5;
 }
 
 message ConnectionErrorRequest {}
