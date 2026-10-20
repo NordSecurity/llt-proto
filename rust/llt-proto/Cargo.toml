@@ -6,7 +6,7 @@ license = "GPL-3.0-only"
 
 [dependencies]
 prost = "0.14"
-tonic = "0.14"
+tonic = { version = "0.14", default-features = false, features = ["channel", "codegen"] }
 tonic-prost = "0.14"
 
 [build-dependencies]
