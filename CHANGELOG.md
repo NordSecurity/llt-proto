@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2026-10-21
+
+- Drop tonic default features, keeping only `channel` and `codegen`
+
 ## 2.0.0 - 2026-09-09
 
 - Add `UnsupportedCipher = 5` to the ENS `Error` enum
