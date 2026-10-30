@@ -9,6 +9,7 @@ enum Error {
     Unauthenticated = 3;
     Superseded = 4;
     UnsupportedCipher = 5;
+    DedicatedIpUnavailable = 6;
 }
 
 message ConnectionErrorRequest {}

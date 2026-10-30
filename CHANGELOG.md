@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 - 2026-10-30
+
+- Add `DedicatedIpUnavailable = 6` to the ENS `Error` enum
+
 ## 2.0.1 - 2026-10-21
 
 - Drop tonic default features, keeping only `channel` and `codegen`
